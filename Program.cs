@@ -1,7 +1,6 @@
 
 using Microsoft.EntityFrameworkCore;
 using Task04Capstone.Data;
-using Task04Capstone.Models;
 using Task04Capstone.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,12 +23,5 @@ app.UseSwaggerUI();
 
 app.MapControllers();
 
-// Create the database for a quick local start.
-// Use EF Core migrations to manage schema changes in development.
-using (var scope = app.Services.CreateScope())
-{
-    var db = scope.ServiceProvider.GetRequiredService<TaskDbContext>();
-    db.Database.EnsureCreated();
-}
-
 app.Run();
+
